@@ -16,6 +16,12 @@ pipeline {
 				echo "${SERVICE_NAME}"
                 git credentialsId: 'GitHub', url: "https://github.com/${ORGANIZATION_NAME}/${SERVICE_NAME}.git" 
 			}
-		}			
+		}
+
+		stage('restore packages') {
+            steps {
+                bat 'dotnet restore'
+            }
+        }		
     }
 }
