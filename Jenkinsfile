@@ -20,7 +20,7 @@ pipeline {
 
 		stage('restore packages') {
             steps {
-                sh "dotnet --info"
+                sh "dotnetRestore"
             }
         }		
     }
